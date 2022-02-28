@@ -20,7 +20,8 @@ class TodoScreen extends HookConsumerWidget {
         backgroundColor: Colors.grey[300],
         appBar: AppBar(
           centerTitle: true,
-          title: const Text("architecture"),
+          title: const Text("todo"),
+          automaticallyImplyLeading: false,
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,6 +53,14 @@ class TodoScreen extends HookConsumerWidget {
               ),
             ),
           ],
+        ),
+        floatingActionButton: IconButton(
+          icon: const Icon(
+            Icons.arrow_forward_ios_outlined,
+          ),
+          onPressed: () async {
+            await _todoNotifier.pushPage();
+          },
         ),
       ),
     );
