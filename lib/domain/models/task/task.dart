@@ -7,6 +7,7 @@ part 'task.g.dart';
 
 @freezed
 class Task with _$Task {
+  @JsonSerializable(explicitToJson: true)
   factory Task({
     required int id,
     required String title,

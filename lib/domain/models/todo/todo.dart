@@ -7,6 +7,7 @@ part 'todo.g.dart';
 
 @freezed
 class Todo with _$Todo {
+  @JsonSerializable(explicitToJson: true)
   factory Todo({
     required int id,
     required String title,

@@ -11,11 +11,7 @@ class TodoRepositoryImpl extends BaseConnect implements TodoRepository {
     try {
       List<Todo> todos = [];
       Response<dynamic> res = await http.get('todos');
-      for (var i = 0; i < res.data.length; i++) {
-        todos.add(
-          Todo.fromJson(res.data[i]),
-        );
-      }
+      res.data.forEach((elm) => todos.add(Todo.fromJson(elm)));
       return todos;
     } catch (err) {
       throw Error();
