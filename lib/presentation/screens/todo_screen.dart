@@ -34,7 +34,9 @@ class TodoScreen extends HookConsumerWidget {
                   return GestureDetector(
                     onTap: () async {
                       await showCupertinoDialog(
+                        id: state[i].id,
                         title: state[i].title,
+                        notifier: _todoNotifier,
                       );
                     },
                     child: ListTile(

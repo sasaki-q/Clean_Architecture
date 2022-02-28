@@ -10,13 +10,25 @@ class TodoRepositoryImpl extends BaseConnect implements TodoRepository {
   Future<List<Todo>> getTodos() async {
     try {
       List<Todo> todos = [];
-      Response<dynamic> res = await http.get("todos");
+      Response<dynamic> res = await http.get('todos');
       for (var i = 0; i < res.data.length; i++) {
         todos.add(
           Todo.fromJson(res.data[i]),
         );
       }
       return todos;
+    } catch (err) {
+      throw Error();
+    }
+  }
+
+  @override
+  Future<Todo> getTodo({required int id}) async {
+    try {
+      Response<dynamic> res = await http.get(
+        'todos/$id',
+      );
+      return Todo.fromJson(res.data);
     } catch (err) {
       throw Error();
     }

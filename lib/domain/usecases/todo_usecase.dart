@@ -12,4 +12,8 @@ class TodoUseCase {
   Future<List<Todo>> getTodos() async {
     return await _todoRep.getTodos();
   }
+
+  Future<Todo> getTodo({required int id}) async {
+    return await _todoRep.getTodo(id: id);
+  }
 }

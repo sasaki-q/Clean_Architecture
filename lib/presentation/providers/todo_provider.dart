@@ -22,4 +22,9 @@ class TodoNotifier extends StateNotifier<List<Todo>> {
   Future<List<Todo>> getTodos() async {
     return await _todoUseCase.getTodos();
   }
+
+  Future<void> getTodo({required int id}) async {
+    Todo res = await _todoUseCase.getTodo(id: id);
+    print('DEBUG get todo === $res');
+  }
 }
